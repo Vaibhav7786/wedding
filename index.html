@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartik & Mayuri Wedding Invitation</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #4a0404;   /* Dark Maroon */
+            --secondary-color: #b8860b; /* Dark Goldenrod */
+            --text-dark: #2A0A12;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #FFF8F0;
+            color: var(--primary-color);
+            overflow-x: hidden;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animations */
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+        }
+        
+        .flower {
+            position: fixed;
+            top: -10%;
+            z-index: 0;
+            pointer-events: none;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in-up {
+            animation: fade-in-up 1s ease-out forwards;
+        }
+
+        .hover-card {
+            transition: all 0.4s ease;
+        }
+        
+        .hover-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: var(--secondary-color);
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .animate-spin-slow {
+            animation: spin-slow 60s linear infinite;
+        }
+
+        @keyframes bloom {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .animate-bloom {
+            animation: bloom 4s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        .animate-sway {
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        @keyframes sway-large {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+        .animate-sway-large {
+            animation: sway-large 3s ease-in-out infinite;
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 1; }
+            25% { transform: scale(1.1); opacity: 0.8; }
+            50% { transform: scale(0.95); opacity: 1; }
+            75% { transform: scale(1.05); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .animate-flicker {
+            animation: flicker 0.5s infinite alternate;
+            transform-origin: bottom center;
+        }
+
+        /* Utility classes */
+        .text-primary { color: var(--primary-color); }
+        .text-secondary { color: var(--secondary-color); }
+        .bg-secondary { background-color: var(--secondary-color); }
+        .fill-secondary { fill: var(--secondary-color); }
+        .border-secondary { border-color: var(--secondary-color); }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- Flower Shower Container -->
+    <div id="flower-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+    <button id="lang-btn" class="fixed top-6 right-6 z-50 bg-[var(--secondary-color)] text-white p-3 rounded-full shadow-lg hover:scale-110 transition-all flex items-center gap-2 font-bold">
+        <i data-lucide="languages" class="w-5 h-5"></i>
+        <span id="lang-text">En</span>
+    </button>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex flex-col items-center justify-center text-center px-4 bg-[url('https://images.unsplash.com/photo-1545659038-e105a3eb7a98?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-[#FFF8F0]"></div>
+        
+        <div class="relative z-10 animate-fade-in-up flex flex-col items-center w-full max-w-4xl">
+            <div class="mb-6 text-[var(--secondary-color)]">
+                <!-- HEADER: BRAHMA (LOTUS ANIMATION) -->
+                <div class="inline-block p-3 rounded-full bg-white/10 backdrop-blur-sm mb-6 shadow-[0_0_25px_rgba(184,134,11,0.4)] border border-[var(--secondary-color)]/30">
+                    <svg viewBox="0 0 100 100" class="h-28 w-28 mx-auto text-[var(--secondary-color)] animate-bloom" fill="currentColor">
+                        <path d="M50 20 C50 20 70 40 80 60 C80 80 60 90 50 90 C40 90 20 80 20 60 C30 40 50 20 50 20 Z" opacity="0.8" />
+                        <path d="M50 10 C50 10 80 35 90 60 C90 85 60 95 50 95 C40 95 10 85 10 60 C20 35 50 10 50 10 Z" opacity="0.5" />
+                        <path d="M50 30 C50 30 65 45 70 60 C70 75 60 85 50 85 C40 85 30 75 30 60 C35 45 50 30 50 30 Z" opacity="1" />
+                        <path d="M35 90 Q50 100 65 90" stroke="currentColor" stroke-width="3" fill="none" />
+                    </svg>
+                </div>
+                
+                <!-- Sanskrit Shloka -->
+                <div class="mb-6 text-white max-w-xl mx-auto bg-black/30 p-4 rounded-xl backdrop-blur-sm border border-[var(--secondary-color)]/30">
+                    <p class="text-xl md:text-2xl font-serif mb-2 text-[var(--secondary-color)]" data-i18n="header.shloka.sanskrit">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥</p>
+                </div>
+
+                <p class="text-lg tracking-widest uppercase font-bold text-[var(--secondary-color)]" data-i18n="header.title">Shree Ganeshay Namah</p>
+            </div>
+            
+            <div class="w-full flex flex-col items-center space-y-4 mb-12">
+                <h1 class="text-6xl md:text-8xl font-serif text-white drop-shadow-lg tracking-wide animate-fade-in-up" style="animation-delay: 0.2s" data-i18n="header.groom">Kartik</h1>
+                <h2 class="text-4xl md:text-5xl font-serif text-[var(--secondary-color)] drop-shadow-md animate-fade-in-up" style="animation-delay: 0.3s">&</h2>
+                <h1 class="text-6xl md:text-8xl font-serif text-white drop-shadow-lg tracking-wide animate-fade-in-up" style="animation-delay: 0.4s" data-i18n="header.bride">Mayuri</h1>
+            </div>
+
+            <p class="inline-block text-xl md:text-2xl text-[var(--secondary-color)] font-medium mb-8 tracking-wide drop-shadow-lg bg-black/60 px-8 py-2 rounded-full backdrop-blur-sm border border-[var(--secondary-color)]/30" data-i18n="header.subtitle">
+                Are getting married
+            </p>
+            
+            <div class="inline-block border-t-2 border-b-2 border-[var(--secondary-color)] py-4 px-10 backdrop-blur-md bg-black/40 rounded-xl shadow-2xl">
+                <p class="text-2xl md:text-3xl text-[var(--secondary-color)] font-serif font-bold drop-shadow-lg" data-i18n="header.date">December 5, 2025</p>
+                <p class="text-[var(--secondary-color)] mt-2 text-lg font-medium drop-shadow-lg" data-i18n="header.location">Indore, Madhya Pradesh</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Family Intro -->
+    <section class="py-20 px-4 text-center max-w-4xl mx-auto relative z-10">
+        <!-- FAMILY INTRO: VISHNU (CHAKRA ANIMATION) -->
+        <div class="mb-6 inline-block opacity-90">
+            <svg viewBox="0 0 100 100" class="h-20 w-20 mx-auto text-[var(--primary-color)] animate-spin-slow" fill="currentColor">
+                <circle cx="50" cy="50" r="15" />
+                <!-- Spokes -->
+                <path d="M50 20 L55 35 L50 50 L45 35 Z" transform="rotate(0 50 50)" />
+                <path d="M50 20 L55 35 L50 50 L45 35 Z" transform="rotate(30 50 50)" />
+                <path d="M50 20 L55 35 L50 50 L45 35 Z" transform="rotate(60 50 50)" />
+                <path d="M50 20 L55 35 L50 50 L45 35 Z" transform="rotate(90 50 50)" />
+                <path d="M50 20 L55 35 L50 50 L45 35 Z" transform="rotate(120 50 50)" />
+                <path d="M50 20 L55 35 L50 50 L45 35 Z" transform="rotate(150 50 50)" />
+                <path d="M50 20 L55 35 L50 50 L45 35 Z" transform="rotate(180 50 50)" />
+                <path d="M50 20 L55 35 L50 50 L45 35 Z" transform="rotate(210 50 50)" />
+                <path d="M50 20 L55 35 L50 50 L45 35 Z" transform="rotate(240 50 50)" />
+                <path d="M50 20 L55 35 L50 50 L45 35 Z" transform="rotate(270 50 50)" />
+                <path d="M50 20 L55 35 L50 50 L45 35 Z" transform="rotate(300 50 50)" />
+                <path d="M50 20 L55 35 L50 50 L45 35 Z" transform="rotate(330 50 50)" />
+                <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="4" fill="none" />
+                <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6" />
+            </svg>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-serif text-primary mb-8" data-i18n="familyIntro.title">Family Blessings</h2>
+        <p class="text-xl text-gray-700 leading-relaxed mb-12 font-serif italic max-w-2xl mx-auto" data-i18n="familyIntro.description">
+            "With the divine grace of our ancestors and the blessings of God, we invite you to celebrate the union of our children."
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Groom Card -->
+            <div class="hover-card bg-white p-8 rounded-2xl shadow-lg border-2 border-secondary/20 relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-full h-2 bg-secondary"></div>
+                <h3 class="text-3xl font-bold text-primary mb-2" data-i18n="familyIntro.groom.name">Kartik</h3>
+                <p class="text-sm text-secondary font-bold uppercase tracking-wider mb-6" data-i18n="familyIntro.groom.title">The Groom</p>
+                <div class="space-y-3 text-gray-700">
+                    <p class="text-sm text-gray-600 italic" data-i18n="familyIntro.groom.grandparents">Grandson of Late Smt. Suman & Late Shri Ramdas Ji Anasune</p>
+                    <p class="font-medium border-b pb-2 border-gray-100" data-i18n="familyIntro.groom.parents">(Son of of Smt. Nirjala & Shri Anil Anasune)</p>
+                </div>
+            </div>
+            
+            <!-- Bride Card -->
+            <div class="hover-card bg-white p-8 rounded-2xl shadow-lg border-2 border-secondary/20 relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-full h-2 bg-secondary"></div>
+                <h3 class="text-3xl font-bold text-primary mb-2" data-i18n="familyIntro.bride.name">Mayuri</h3>
+                <p class="text-sm text-secondary font-bold uppercase tracking-wider mb-6" data-i18n="familyIntro.bride.title">The Bride</p>
+                <div class="space-y-3 text-gray-700">
+                    <p class="text-sm text-gray-600 italic" data-i18n="familyIntro.bride.grandparents">Granddaughter of Smt. Kesarbai & Late Shri Kisanseth Sonar</p>
+                    <p class="font-medium border-b pb-2 border-gray-100" data-i18n="familyIntro.bride.parents">(Daughter of Smt. Shobha & Shri Subhashseth Sonar)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="py-16 bg-gradient-to-r from-[var(--primary-color)] to-[#2a0a12] text-[#FDF5E6] relative z-10 shadow-inner">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl mb-12 font-serif tracking-widest text-[var(--secondary-color)]" data-i18n="countdown.title">Countdown to the Big Day</h2>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+                <div class="flex flex-col items-center group">
+                    <div class="bg-white/10 backdrop-blur-sm w-24 h-24 md:w-32 md:h-32 rounded-full flex items-center justify-center border-2 border-[var(--secondary-color)]/30 mb-4 group-hover:bg-white/20 transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                        <div class="text-4xl md:text-5xl font-serif font-bold tabular-nums" id="days">0</div>
+                    </div>
+                    <div class="text-sm uppercase tracking-widest font-medium text-[var(--secondary-color)]" data-i18n="countdown.days">Days</div>
+                </div>
+                <div class="flex flex-col items-center group">
+                    <div class="bg-white/10 backdrop-blur-sm w-24 h-24 md:w-32 md:h-32 rounded-full flex items-center justify-center border-2 border-[var(--secondary-color)]/30 mb-4 group-hover:bg-white/20 transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                        <div class="text-4xl md:text-5xl font-serif font-bold tabular-nums" id="hours">0</div>
+                    </div>
+                    <div class="text-sm uppercase tracking-widest font-medium text-[var(--secondary-color)]" data-i18n="countdown.hours">Hours</div>
+                </div>
+                <div class="flex flex-col items-center group">
+                    <div class="bg-white/10 backdrop-blur-sm w-24 h-24 md:w-32 md:h-32 rounded-full flex items-center justify-center border-2 border-[var(--secondary-color)]/30 mb-4 group-hover:bg-white/20 transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                        <div class="text-4xl md:text-5xl font-serif font-bold tabular-nums" id="minutes">0</div>
+                    </div>
+                    <div class="text-sm uppercase tracking-widest font-medium text-[var(--secondary-color)]" data-i18n="countdown.minutes">Minutes</div>
+                </div>
+                <div class="flex flex-col items-center group">
+                    <div class="bg-white/10 backdrop-blur-sm w-24 h-24 md:w-32 md:h-32 rounded-full flex items-center justify-center border-2 border-[var(--secondary-color)]/30 mb-4 group-hover:bg-white/20 transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                        <div class="text-4xl md:text-5xl font-serif font-bold tabular-nums" id="seconds">0</div>
+                    </div>
+                    <div class="text-sm uppercase tracking-widest font-medium text-[var(--secondary-color)]" data-i18n="countdown.seconds">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Timeline -->
+    <section class="py-20 px-4 max-w-5xl mx-auto relative z-10">
+        <h2 class="text-5xl font-serif text-center text-primary mb-20 drop-shadow-sm" data-i18n="events.title">Wedding Events</h2>
+        
+        <div class="space-y-16">
+            <!-- Event 1 -->
+            <div class="hover-card flex flex-col md:flex-row items-center gap-6 md:gap-12 bg-white p-8 rounded-2xl shadow-xl border-l-8 border-secondary group">
+                <div class="w-full md:w-1/3 text-center md:text-right border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-8">
+                    <div class="text-4xl font-bold text-primary mb-1" data-i18n="events.event1.date">Dec 03</div>
+                    <div class="text-gray-500 font-medium uppercase tracking-wide" data-i18n="events.event1.day">Wednesday, 2025</div>
+                </div>
+                <div class="w-full md:w-2/3 text-center md:text-left pl-0 md:pl-4">
+                    <h3 class="text-3xl font-serif text-primary mb-4 flex items-center justify-center md:justify-start gap-3">
+                        <i data-lucide="heart" class="text-secondary fill-secondary w-6 h-6"></i>
+                        <span data-i18n="events.event1.name">Ganesh & Mata Pujan</span>
+                    </h3>
+                    <div class="space-y-3 text-gray-600 text-lg">
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i data-lucide="clock" class="text-secondary w-5 h-5"></i>
+                            <span data-i18n="events.event1.time">10:00 AM (Ganesh) | 11:00 AM (Mata)</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i data-lucide="map-pin" class="text-secondary w-5 h-5"></i>
+                            <span data-i18n="events.event1.location">Sanvid Nagar, Indore</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="hover-card flex flex-col md:flex-row items-center gap-6 md:gap-12 bg-white p-8 rounded-2xl shadow-xl border-l-8 border-secondary group">
+                <div class="w-full md:w-1/3 text-center md:text-right border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-8">
+                    <div class="text-4xl font-bold text-primary mb-1" data-i18n="events.event2.date">Dec 03</div>
+                    <div class="text-gray-500 font-medium uppercase tracking-wide" data-i18n="events.event2.day">Wednesday, 2025</div>
+                </div>
+                <div class="w-full md:w-2/3 text-center md:text-left pl-0 md:pl-4">
+                    <h3 class="text-3xl font-serif text-primary mb-4 flex items-center justify-center md:justify-start gap-3">
+                        <i data-lucide="heart" class="text-secondary fill-secondary w-6 h-6"></i>
+                        <span data-i18n="events.event2.name">Mandap</span>
+                    </h3>
+                    <div class="space-y-3 text-gray-600 text-lg">
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i data-lucide="clock" class="text-secondary w-5 h-5"></i>
+                            <span data-i18n="events.event2.time">4:00 PM</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i data-lucide="map-pin" class="text-secondary w-5 h-5"></i>
+                            <span data-i18n="events.event2.location">Sanvid Nagar, Indore</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="hover-card flex flex-col md:flex-row items-center gap-6 md:gap-12 bg-white p-8 rounded-2xl shadow-xl border-l-8 border-secondary group">
+                <div class="w-full md:w-1/3 text-center md:text-right border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-8">
+                    <div class="text-4xl font-bold text-primary mb-1" data-i18n="events.event3.date">Dec 04</div>
+                    <div class="text-gray-500 font-medium uppercase tracking-wide" data-i18n="events.event3.day">Thursday, 2025</div>
+                </div>
+                <div class="w-full md:w-2/3 text-center md:text-left pl-0 md:pl-4">
+                    <h3 class="text-3xl font-serif text-primary mb-4 flex items-center justify-center md:justify-start gap-3">
+                        <i data-lucide="heart" class="text-secondary fill-secondary w-6 h-6"></i>
+                        <span data-i18n="events.event3.name">Haldi Ceremony</span>
+                    </h3>
+                    <div class="space-y-3 text-gray-600 text-lg">
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i data-lucide="clock" class="text-secondary w-5 h-5"></i>
+                            <span data-i18n="events.event3.time">4:00 PM</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i data-lucide="map-pin" class="text-secondary w-5 h-5"></i>
+                            <span data-i18n="events.event3.location">Pushpratna Park, Indore</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 4 -->
+            <div class="hover-card flex flex-col md:flex-row items-center gap-6 md:gap-12 bg-gradient-to-br from-[#FFF0F5] to-white p-8 rounded-2xl shadow-2xl border-2 border-primary scale-105 relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mr-10 -mt-10 w-32 h-32 bg-primary rotate-45"></div>
+                
+                <div class="w-full md:w-1/3 text-center md:text-right border-b md:border-b-0 md:border-r border-primary/20 pb-4 md:pb-0 md:pr-8">
+                    <div class="text-5xl font-bold text-primary mb-2" data-i18n="events.event4.date">Dec 05</div>
+                    <div class="text-gray-600 font-bold text-lg" data-i18n="events.event4.day">Friday, 2025</div>
+                    <i data-lucide="gift" class="text-primary mx-auto md:ml-auto md:mr-0 mt-4 animate-bounce w-10 h-10 block"></i>
+                </div>
+                
+                <div class="w-full md:w-2/3 text-center md:text-left pl-0 md:pl-4">
+                    <h3 class="text-4xl font-serif text-primary mb-6" data-i18n="events.event4.name">The Wedding & Reception</h3>
+                    <div class="space-y-4 text-gray-700">
+                        <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+                            <div class="bg-white px-6 py-3 rounded-lg shadow-md border border-secondary/30">
+                                <span class="font-bold text-primary block uppercase text-sm mb-1" data-i18n="events.event4.shubhLagan">Shubh Lagan</span>
+                                <span class="text-lg" data-i18n="events.event4.shubhLaganTime">9:00 AM</span>
+                            </div>
+                            <div class="bg-white px-6 py-3 rounded-lg shadow-md border border-secondary/30">
+                                <span class="font-bold text-primary block uppercase text-sm mb-1" data-i18n="events.event4.reception">Reception</span>
+                                <span class="text-lg" data-i18n="events.event4.receptionTime">7:00 PM Onwards</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Clickable Address Text -->
+                        <div onclick="window.open('https://www.google.com/maps/search/?api=1&query=Pushpratna+Park+Cricket+Ground+Bicholi+Road+Devguradia+Indore', '_blank')" class="mt-6 flex items-start justify-center md:justify-start gap-3 bg-white/50 p-4 rounded-lg cursor-pointer hover:bg-white hover:shadow-md transition-all">
+                            <i data-lucide="map-pin" class="text-primary mt-1 shrink-0 w-6 h-6"></i>
+                            <div>
+                                <span class="font-bold text-xl block text-primary" data-i18n="events.event4.locationName">Pushpratna Park</span>
+                                <span class="text-base" data-i18n="events.event4.locationAddress">Cricket Ground, Bicholi Road, Devguradia, Indore (M.P.)</span>
+                            </div>
+                        </div>
+
+                        <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Pushpratna+Park+Cricket+Ground+Bicholi+Road+Devguradia+Indore', '_blank')" class="mt-6 inline-flex items-center gap-2 text-base bg-primary text-white px-8 py-3 rounded-full hover:opacity-90 transition-all hover:shadow-lg transform hover:-translate-y-1 cursor-pointer">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> 
+                            <span data-i18n="events.event4.openMaps">Open Maps</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative bg-[#FDF5E6] text-[#2A0A12] pt-32 pb-12 px-4 overflow-hidden border-t-4 border-primary">
+        <!-- 1. Spinning Mandala Background -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none overflow-hidden">
+            <svg viewBox="0 0 200 200" class="w-[800px] h-[800px] text-primary animate-spin-slow" fill="currentColor">
+                <circle cx="100" cy="100" r="10" />
+                <!-- Simplified Mandala Paths for manual SVG replication -->
+                <g>
+                    <path d="M100 100 L100 40 Q120 60 100 100" transform="rotate(0 100 100)" opacity="0.5"/>
+                    <path d="M100 100 L100 40 Q120 60 100 100" transform="rotate(30 100 100)" opacity="0.5"/>
+                    <path d="M100 100 L100 40 Q120 60 100 100" transform="rotate(60 100 100)" opacity="0.5"/>
+                    <path d="M100 100 L100 40 Q120 60 100 100" transform="rotate(90 100 100)" opacity="0.5"/>
+                    <path d="M100 100 L100 40 Q120 60 100 100" transform="rotate(120 100 100)" opacity="0.5"/>
+                    <path d="M100 100 L100 40 Q120 60 100 100" transform="rotate(150 100 100)" opacity="0.5"/>
+                    <path d="M100 100 L100 40 Q120 60 100 100" transform="rotate(180 100 100)" opacity="0.5"/>
+                    <path d="M100 100 L100 40 Q120 60 100 100" transform="rotate(210 100 100)" opacity="0.5"/>
+                    <path d="M100 100 L100 40 Q120 60 100 100" transform="rotate(240 100 100)" opacity="0.5"/>
+                    <path d="M100 100 L100 40 Q120 60 100 100" transform="rotate(270 100 100)" opacity="0.5"/>
+                    <path d="M100 100 L100 40 Q120 60 100 100" transform="rotate(300 100 100)" opacity="0.5"/>
+                    <path d="M100 100 L100 40 Q120 60 100 100" transform="rotate(330 100 100)" opacity="0.5"/>
+                </g>
+                <circle cx="100" cy="100" r="85" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" />
+            </svg>
+        </div>
+
+        <!-- 2. Hanging Torans -->
+        <div id="toran-container" class="absolute top-0 left-0 w-full h-16 z-10 flex justify-between overflow-hidden pointer-events-none">
+            <!-- JS will populate this -->
+        </div>
+
+        <div class="max-w-4xl mx-auto text-center space-y-8 relative z-20">
+            <div>
+                <!-- Footer: MAHESH/SHIVA (TRISHUL ANIMATION) -->
+                <div class="mb-4 inline-block opacity-60">
+                    <svg viewBox="0 0 100 100" class="h-16 w-16 mx-auto text-primary animate-sway" fill="currentColor">
+                        <path d="M50 10 L50 90" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                        <path d="M20 25 Q20 50 50 60" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" />
+                        <path d="M80 25 Q80 50 50 60" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" />
+                        <path d="M20 25 L15 15 L25 15 Z" />
+                        <path d="M80 25 L75 15 L85 15 Z" />
+                        <path d="M50 10 L45 0 L55 0 Z" />
+                        <path d="M40 65 L60 65 L50 75 L60 85 L40 85 L50 75 Z" />
+                        <path d="M45 40 Q50 35 55 40" stroke="currentColor" stroke-width="2" fill="none" />
+                        <path d="M45 45 Q50 40 55 45" stroke="currentColor" stroke-width="2" fill="none" />
+                        <path d="M45 50 Q50 45 55 50" stroke="currentColor" stroke-width="2" fill="none" />
+                    </svg>
+                </div>
+            </div>
+            <div class="border-t border-primary/20 pt-8">
+                <p class="text-lg text-primary font-serif font-bold mb-2" data-i18n="footer.regards">Regards</p>
+                <p class="text-3xl font-serif mb-2 text-[#2A0A12]" data-i18n="footer.family">Anil Anasune & Family</p>
+                <p class="text-gray-600" data-i18n="footer.address">71/2, Sanvid Nagar, Kanadiya Road, Indore</p>
+                <p class="text-gray-600 mt-2 font-medium" data-i18n="footer.contact">Contact: 9424007937, 8014444416</p>
+            </div>
+            
+            <div class="text-base text-primary italic bg-white/50 inline-block px-6 py-3 rounded-full shadow-sm border border-secondary/20" data-i18n="footer.specialRequest">
+                Special Request: No boxed gifts or dresses please. Your presence is our only gift.
+            </div>
+        </div>
+
+        <!-- 3. Bottom Flickering Diyas -->
+        <div class="absolute bottom-0 left-0 w-full flex justify-between px-4 sm:px-20 pb-4 z-10 pointer-events-none opacity-80">
+            <svg viewBox="0 0 100 100" class="w-16 h-16 text-primary">
+                <path d="M10 60 Q50 95 90 60 L90 55 Q50 90 10 55 Z" fill="currentColor" />
+                <path class="animate-flicker" d="M50 55 Q65 40 50 10 Q35 40 50 55" fill="#FFD700" />
+                <circle cx="50" cy="50" r="5" fill="orange" class="animate-flicker" style="animation-delay: 0.1s" />
+            </svg>
+            <svg viewBox="0 0 100 100" class="w-16 h-16 text-primary">
+                <path d="M10 60 Q50 95 90 60 L90 55 Q50 90 10 55 Z" fill="currentColor" />
+                <path class="animate-flicker" d="M50 55 Q65 40 50 10 Q35 40 50 55" fill="#FFD700" />
+                <circle cx="50" cy="50" r="5" fill="orange" class="animate-flicker" style="animation-delay: 0.1s" />
+            </svg>
+        </div>
+        
+        <!-- Background Gradient for Footer -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[var(--secondary-color)]/10 to-transparent pointer-events-none"></div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Data
+        const content = {
+            header: {
+                shloka: {
+                    sanskrit: "वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥",
+                },
+                title: { en: "Shree Ganeshay Namah", hi: "श्री गणेशाय नमः" },
+                groom: { en: "Kartik", hi: "कार्तिक" },
+                bride: { en: "Mayuri", hi: "मयूरी" },
+                subtitle: { en: "Are getting married", hi: "का विवाह संपन्न होने जा रहा है" },
+                date: { en: "December 5, 2025", hi: "५ दिसंबर, २०२५" },
+                location: { en: "Indore, Madhya Pradesh", hi: "इंदौर, मध्य प्रदेश" },
+                scrollDown: { en: "Scroll Down", hi: "नीचे स्क्रॉल करें" }
+            },
+            familyIntro: {
+                title: { en: "Family Blessings", hi: "पारिवारिक आशीर्वाद" },
+                description: {
+                    en: '"With the divine grace of our ancestors and the blessings of God, we invite you to celebrate the union of our children."',
+                    hi: '"हमारे पूर्वजों की दिव्य कृपा और ईश्वर के आशीर्वाद से, हम आपको अपने बच्चों के विवाह समारोह में आमंत्रित करते हैं। "'
+                },
+                groom: {
+                    name: { en: "Kartik", hi: "कार्तिक" },
+                    title: { en: "The Groom", hi: "वर" },
+                    grandparents: { en: "Grandson of Late Smt. Suman & Late Shri Ramdas Ji Anasune", hi: "सुपौत्र स्व. श्रीमती सुमन एवं स्व. श्री रामदास जी अनासुने" },
+                    parents: { en: "Son of Smt. Nirjala & Shri Anil Anasune", hi: "(सुपुत्र श्रीमती निर्जला एवं श्री अनिल अनासुने)" }
+                },
+                bride: {
+                    name: { en: "Mayuri", hi: "मयूरी" },
+                    title: { en: "The Bride", hi: "वधु" },
+                    grandparents: { en: "Granddaughter of Smt. Kesarbai & Late Shri Kisanseth Sonar", hi: "सुपोत्री श्रीमती केसरबाई एवं स्व. श्री किसनसेठ सोनार" },
+                    parents: { en: "(Daughter of Smt. Shobha & Shri Subhashseth Sonar)", hi: "(सुपुत्री श्रीमती शोभा एवं श्री सुभाषसेठ सोनार)" }
+                }
+            },
+            countdown: {
+                title: { en: "Countdown to the Big Day", hi: "शुभ दिन की उलटी गिनती" },
+                days: { en: "Days", hi: "दिन" },
+                hours: { en: "Hours", hi: "घंटे" },
+                minutes: { en: "Minutes", hi: "मिनट" },
+                seconds: { en: "Seconds", hi: "सेकंड" }
+            },
+            events: {
+                title: { en: "Wedding Events", hi: "विवाह कार्यक्रम" },
+                event1: {
+                    date: { en: "Dec 03", hi: "०३ दिसं" },
+                    day: { en: "Wednesday, 2025", hi: "बुधवार, २०२५" },
+                    name: { en: "Ganesh & Mata Pujan", hi: "गणेश एवं माता पूजन" },
+                    time: { en: "10:00 AM (Ganesh) | 11:00 AM (Mata)", hi: "प्रातः १०:०० बजे (गणेश) | प्रातः ११:०० बजे (माता)" },
+                    location: { en: "Sanvid Nagar, Indore", hi: "संविद नगर, इंदौर" }
+                },
+                event2: {
+                    date: { en: "Dec 03", hi: "०३ दिसं" },
+                    day: { en: "Wednesday, 2025", hi: "बुधवार, २०२५" },
+                    name: { en: "Mandap", hi: "मंडप" },
+                    time: { en: "4:00 PM", hi: "सायं ४:०० बजे" },
+                    location: { en: "Sanvid Nagar, Indore", hi: "संविद नगर, इंदौर" }
+                },
+                event3: {
+                    date: { en: "Dec 04", hi: "०४ दिसं" },
+                    day: { en: "Thursday, 2025", hi: "गुरुवार, २०२५" },
+                    name: { en: "Haldi Ceremony", hi: "हल्दी समारोह" },
+                    time: { en: "4:00 PM", hi: "सायं ४:०० बजे" },
+                    location: { en: "Pushpratna Park, Indore", hi: "पुष्परत्न पार्क, इंदौर" }
+                },
+                event4: {
+                    date: { en: "Dec 05", hi: "०५ दिसं" },
+                    day: { en: "Friday, 2025", hi: "शुक्रवार, २०२५" },
+                    name: { en: "The Wedding & Reception", hi: "शुभ विवाह एवं आशीर्वाद समारोह" },
+                    shubhLagan: { en: "Shubh Lagan", hi: "शुभ लगन" },
+                    shubhLaganTime: { en: "9:00 AM", hi: "प्रातः ९:०० बजे" },
+                    reception: { en: "Reception", hi: "आशीर्वाद समारोह" },
+                    receptionTime: { en: "7:00 PM Onwards", hi: "सायं ७:०० बजे से" },
+                    locationName: { en: "Pushpratna Park", hi: "पुष्परत्न पार्क" },
+                    locationAddress: { 
+                        en: "Cricket Ground, Bicholi Road, Devguradia, Indore (M.P.)", 
+                        hi: "क्रिकेट ग्राउंड बिचौली रोड, देवगुराड़िया, इंदौर (म.प्र.)" 
+                    },
+                    openMaps: { en: "Open Maps", hi: "मैप्स खोलें" }
+                }
+            },
+            footer: {
+                regards: { en: "Regards", hi: "दर्शनाभिलाषी" },
+                family: { en: "Anil Anasune & Family", hi: "अनिल अनासुने एवं समस्त परिवार" },
+                address: { en: "71/2, Sanvid Nagar, Kanadiya Road, Indore", hi: "७१/२, संविद नगर, कनाडिया रोड, इंदौर" },
+                contact: { en: "Contact: 9424007937, 8014444416", hi: "संपर्क: ९४२४००७९३७, ८०१४४४४४१६" },
+                specialRequest: { 
+                    en: "Special Request: No boxed gifts or dresses please. Your presence is our only gift.", 
+                    hi: "विशेष अनुरोध: कृपया उपहार में वस्त्र (कपड़े) या बॉक्स गिफ्ट न लाएं। आपकी उपस्थिति ही हमारा उपहार है।" 
+                }
+            }
+        };
+
+        // --- Countdown Timer ---
+        const weddingDate = new Date('2025-12-05T09:00:00').getTime();
+        
+        function updateTimer() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById('days').innerText = '0';
+                document.getElementById('hours').innerText = '0';
+                document.getElementById('minutes').innerText = '0';
+                document.getElementById('seconds').innerText = '0';
+            } else {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = days;
+                document.getElementById('hours').innerText = hours;
+                document.getElementById('minutes').innerText = minutes;
+                document.getElementById('seconds').innerText = seconds;
+            }
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // --- Flower Shower ---
+        function createFlowers() {
+            const container = document.getElementById('flower-container');
+            const types = ['🌸', '🌺', '🌹', '🌷', '🏵️'];
+            
+            for (let i = 0; i < 30; i++) {
+                const flower = document.createElement('div');
+                flower.classList.add('flower');
+                flower.innerText = types[Math.floor(Math.random() * types.length)];
+                
+                flower.style.left = Math.random() * 100 + '%';
+                flower.style.fontSize = (1.5 + Math.random()) + 'rem';
+                flower.style.animationDuration = (5 + Math.random() * 10) + 's';
+                flower.style.animationDelay = '-' + (Math.random() * 10) + 's';
+                
+                container.appendChild(flower);
+            }
+        }
+        createFlowers();
+
+        // --- Torans ---
+        function createTorans() {
+            const container = document.getElementById('toran-container');
+            for(let i = 0; i < 20; i++) {
+                // Creating SVG element for Toran
+                const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                svg.setAttribute('viewBox', '0 0 20 80');
+                svg.classList.add('h-full', 'w-12', 'text-secondary', 'animate-sway-large', 'origin-top');
+                svg.style.animationDelay = (i * 0.2) + 's';
+                svg.style.transformOrigin = 'top center';
+                svg.innerHTML = `
+                    <line x1="10" y1="0" x2="10" y2="80" stroke="currentColor" stroke-width="1" />
+                    <circle cx="10" cy="10" r="6" fill="#FFD700" />
+                    <circle cx="10" cy="25" r="6" fill="currentColor" />
+                    <circle cx="10" cy="40" r="6" fill="#FFD700" />
+                    <circle cx="10" cy="55" r="6" fill="currentColor" />
+                    <path d="M5 70 L15 70 L10 80 Z" fill="#FFD700" />
+                `;
+                container.appendChild(svg);
+            }
+        }
+        createTorans();
+
+        // --- Language Toggle ---
+        let isHindi = false;
+        const langBtn = document.getElementById('lang-btn');
+        const langText = document.getElementById('lang-text');
+
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-i18n]');
+            const lang = isHindi ? 'hi' : 'en';
+            
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const keys = key.split('.');
+                let value = content;
+                
+                for (const k of keys) {
+                    if (value[k] === undefined) return;
+                    value = value[k];
+                }
+                
+                if (typeof value === 'object' && value[lang]) {
+                    el.innerText = value[lang];
+                } else if (typeof value === 'string') {
+                    // For non-translated items like Shloka Sanskrit
+                    el.innerText = value;
+                }
+            });
+            
+            langText.innerText = isHindi ? 'हिंदी' : 'En';
+        }
+
+        langBtn.addEventListener('click', () => {
+            isHindi = !isHindi;
+            updateContent();
+        });
+
+    </script>
+</body>
+</html>
